@@ -146,12 +146,23 @@ header nav ul li a:hover{
     margin-top: 1rem;
 }
 
-#contenerArticles .bloc .minibloc{
+#contenerArticles .bloc .minibloc1{
     width: 100%;
     display: flex;
     
     align-items: center;
     margin-bottom: 1rem;
+    text-decoration: none;
+}
+
+#contenerArticles .bloc .minibloc2{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#contenerArticles .bloc .minibloc2 ul{
+    list-style: none;
+    display: flex;
 }
 
 #contenerArticles .bloc img{
@@ -179,5 +190,53 @@ header nav ul li a:hover{
     width: 60%;
 }
 
+
+/* ///////////////////////////////////////////// */
+/* page detail article front */
+#contenerArticle{
+    display: flex;
+    justify-content: center;
+}
+
+#contenerArticle .blocArticle{
+    background-color: white;
+    width: 80%;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+#contenerArticle .blocArticle .minibloc{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#contenerArticle .blocArticle .minibloc img{
+    width: 25%;
+    border-radius: 50%;
+}
+
+#contenerArticle .blocArticle .minibloc p{
+    width: 65%;
+}
+
+#contenerArticle .blocArticle form textarea{
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem 0 3rem 1rem;
+    resize: none;
+}
+
+#contenerArticle .blocArticle .minibloc2{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#contenerArticle .blocArticle .minibloc2 ul{
+    display: flex;
+    list-style: none;
+}
 
 /* ///////////////////////////////////////////// */

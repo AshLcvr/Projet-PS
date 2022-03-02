@@ -63,9 +63,9 @@ function errorRadios($erreur, $donnes, $key, $key2) {
     return $erreur;
 }
 
-function getActeurById($id){
+function getArticleById($id){
     global $pdo;
-    $sql = "SELECT * FROM acteurs WHERE ID = :id";
+    $sql = "SELECT * FROM blog_articles WHERE ID = :id";
     $query = $pdo->prepare($sql);
     // proctection injection sql
     $query->bindValue(':id',$id, PDO::PARAM_INT);

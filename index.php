@@ -6,7 +6,7 @@ require_once('inc/fonction.php');
 include_once('inc/fichier.php');
 include_once('inc/pdo.php');
 
-
+$title= 'Le blog de ouf';
 $error = array();
 $commentaire = '';
 

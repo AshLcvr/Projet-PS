@@ -20,12 +20,14 @@
                     <?php if (islogged()) { ?>
                         <li><a href="index.php">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a></li>
                         <li><a href="logout.php">Déconnexion</a></li>
-                        <?php debug($_SESSION) ?>
-                    <?php }else{ ?>
-                      <li><a href="register.php">Inscription</a></li>
+                            <?php if(isloggedAdmin()) {  ?>
+                                <li><a href="admin/index.php">Admin</a></li>
+                            <?php } ?>
+                        <?php } else{ ?>
+                        <li><a href="register.php">Inscription</a></li>
                         <li><a href="login.php">Connexion</a></li>
-                    <?php } ?>
-                    
+                    <?php }
+                    debug($_SESSION);?>
                 </ul>
             </nav>
         </header>

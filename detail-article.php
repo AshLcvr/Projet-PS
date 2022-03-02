@@ -83,7 +83,7 @@ require_once('inc/header.php'); ?>
 
 
 <?php if (isloggedAdmin()) { ?>
-    <a href="edit.php?id=<?php echo $id; ?>">EDIT</a>
+    <a href="admin/edit-articles.php?id=<?php echo $id; ?>">EDIT</a>
 <?php } ?>
 
 

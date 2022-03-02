@@ -8,6 +8,21 @@ body{
     background-color: aqua;
 }
 
+.wrap{
+    width: 1080px;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+}
+
+.center{
+    margin: 0 auto;
+}
+
+.flex{
+    display: flex;
+}
+
 #content{
     text-align: center; 
 }

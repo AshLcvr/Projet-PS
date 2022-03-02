@@ -1,4 +1,4 @@
-//<?php
+<?php
 
 session_start();
 
@@ -16,26 +16,21 @@ $query = $pdo->prepare($sql);
 // proctection injection sql
 $query->execute();
 $articles  = $query->fetchAll();
-debug($articles);
+
 
 $sql = "SELECT * FROM blog_comments";
 $query = $pdo->prepare($sql);
-// proctection injection sql
 $query->execute();
 $comments  = $query->fetchAll();
-debug($comments);
+
 
 $sql = "SELECT * FROM blog_users";
 $query = $pdo->prepare($sql);
-// proctection injection sql
 $query->execute();
 $users  = $query->fetchAll();
-debug($users);
+
 
 if (!empty($_POST['submitted'])) {
-    
-    debug($_POST);
-    // faille xss
     $commentaire = trim(strip_tags($_POST['commentaire']));
 
 
@@ -45,10 +40,7 @@ if (!empty($_POST['submitted'])) {
     }
 
    
-    
 
-
-    debug($error);
    
     
     // if no error
@@ -61,6 +53,7 @@ if (!empty($_POST['submitted'])) {
 
 
 require_once('inc/header.php'); ?>
+
 <div id="contenerArticles">
 
     <?php foreach ($articles as $key => $article) { ?>

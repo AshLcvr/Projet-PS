@@ -14,6 +14,38 @@ function debug($tableau) {
     echo '</pre>';
 }
 
+function validateText($errors, $value, $key, $min, $max){
+    if(!empty($_POST['submitted'])){
+        if(!empty($value)){
+            if(mb_strlen($value) < $min || mb_strlen($value) > $max){
+                $errors[$key] = 'Ce champ doit comporter '.$min.' à '.$max.' caractères';
+            }
+        }else{
+            $errors[$key] = 'Veuillez renseigner ce champ!';
+        }
+    }
+    return $errors;
+}
+
+
+function validateEmail($errors, $value, $key ){
+    if(!empty($value)) {
+        if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            $errors[$key] = 'Veuillez renseigner un email valide';
+        }
+    } else {
+        $errors[$key] = 'Veuillez renseigner un email';
+    }
+    return $errors;
+}
+
+function valueNoReset($key){
+    if(!empty($_POST[$key])){
+        echo $_POST[$key];
+    }
+}
+
+
 function errorTexte($erreur, $donnes, $key, $min, $max) {
     if (!empty($donnes)) {
         if (mb_strlen($donnes) > $max) {
@@ -91,7 +123,7 @@ function spanError($key, $erreur) {
 
 function inputTextAdd($key, $donnes) {
     $html = '';
-    $html.= '<input class="bloc" type="text" name="'.$key.'" id="'.$key.'" value="';
+    $html.= '<input  type="text" name="'.$key.'" id="'.$key.'" value="';
     if (!empty($donnes)) {
         $html.= $donnes;  
         }

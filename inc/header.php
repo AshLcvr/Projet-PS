@@ -18,11 +18,11 @@
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <?php if (islogged()) { ?>
-                        <li><a href="index.php">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a></li>
+                        <li><a href="modif-user.php">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a></li>
                         <li><a href="logout.php">Déconnexion</a></li>
                     <?php }else{ ?>
-                      <li><a href="inscription.php">inscription</a></li>
-                        <li><a href="connexion.php">connexion</a></li>
+                      <li><a href="register.php">Inscription</a></li>
+                        <li><a href="login.php">Connexion</a></li>
                     <?php } ?>
                     
                 </ul>

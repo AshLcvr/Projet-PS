@@ -11,17 +11,13 @@ $error = array();
 $commentaire = '';
 
 
-
-
 $sql = "SELECT * FROM blog_comments";
 $query = $pdo->prepare($sql);
-// proctection injection sql
 $query->execute();
 $comments  = $query->fetchAll();
 
 $sql = "SELECT * FROM blog_users";
 $query = $pdo->prepare($sql);
-// proctection injection sql
 $query->execute();
 $users  = $query->fetchAll();
 
@@ -42,6 +38,14 @@ if(!empty($_POST['submittedd'])){
     }
     if(!empty($_POST['ordre']) &&  $_POST['ordre'] !== 'Ordre d\'affichage :'){
         $ordre = $_POST['ordre'];
+
+   
+
+   
+    }
+    // if no error
+    if (count($error) == 0) {
+
     }
 }
 
@@ -81,6 +85,7 @@ require_once('inc/header.php'); ?>
         <input type="submit" name="submittedd" value="Trier">
     </form>
     <?php pagination($page, $nbArticles, $count); ?>
+
 <div id="contenerArticles">
     <?php foreach ($articles as $key => $article) { ?>
         <div class="bloc bloc<?php echo $key; ?>">

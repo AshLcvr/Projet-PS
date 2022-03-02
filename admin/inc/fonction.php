@@ -13,6 +13,22 @@ function validateText($errors, $value, $key, $min, $max){
     return $errors;
 }
 
+function validateEmail($errors, $value, $key ){
+    if(!empty($value)) {
+        if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            $errors[$key] = 'Veuillez renseigner un email valide';
+        }
+    } else {
+        $errors[$key] = 'Veuillez renseigner un email';
+    }
+    return $errors;
+}
+
+function valueNoReset($key){
+    if(!empty($_POST[$key])){
+        echo $_POST[$key];
+    }
+}
 
 
 function getAllPDO($table){

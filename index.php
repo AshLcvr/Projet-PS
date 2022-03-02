@@ -1,22 +1,108 @@
-<?php
+//<?php
 
 session_start();
 
 require_once('inc/fonction.php');
 include_once('inc/fichier.php');
 include_once('inc/pdo.php');
-require_once('vendor/autoload.php');
 
 
 $error = array();
+$commentaire = '';
 
+
+$sql = "SELECT * FROM blog_articles";
+$query = $pdo->prepare($sql);
+// proctection injection sql
+$query->execute();
+$articles  = $query->fetchAll();
+debug($articles);
+
+$sql = "SELECT * FROM blog_comments";
+$query = $pdo->prepare($sql);
+// proctection injection sql
+$query->execute();
+$comments  = $query->fetchAll();
+debug($comments);
+
+$sql = "SELECT * FROM blog_users";
+$query = $pdo->prepare($sql);
+// proctection injection sql
+$query->execute();
+$users  = $query->fetchAll();
+debug($users);
+
+if (!empty($_POST['submitted'])) {
     
+    debug($_POST);
+    // faille xss
+    $commentaire = trim(strip_tags($_POST['commentaire']));
+
+
+    // Validation
+    if (!islogged()) {
+        header('Location: connexion.php'); 
+    }
+
+   
+    
+
+
+    debug($error);
+   
+    
+    // if no error
+    if (count($error) == 0) {
+
+    }
+
+}
 
 
 
 require_once('inc/header.php'); ?>
+<div id="contenerArticles">
+
+    <?php foreach ($articles as $key => $article) { ?>
+        <div class="bloc bloc<?php echo $key; ?>">
+            <div class="minibloc">
+                <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
+                <h2><?php echo $article['title']; ?></h2>
+            </div>
+            <p><?php echo $article['content']; ?></p>
+            <h4>Cette article a été créé le <?php echo $article['created_at']; ?></h4>
+            <?php if (!$article['created_at'] === $article['modified_at']) { ?>
+                <p><?php echo $article['modified']; ?></p>
+            <?php } ?>
+            <div class="separator"></div>
+            <?php if (islogged()) { ?>
+                <form class="monForm" action="" method="POST" novalidate>
+                    <?php echo label('commentaire','Commentaire') ?>
+                    <textarea placeholder="Laissez un commentaire" name="commentaire"></textarea>
+                    <input type="submit" name="submitted" value="Envoyer">
+                </form>
+            <?php } ?>
+            <?php foreach ($comments as $key => $comment) { ?>
+                <div class="minibloc">
+                    <?php if ($article['id'] === $comment['id_article']) { ?>
+                        
+                        <?php foreach ($users as $key => $user) { ?>
+                            <?php if ($comment['id_article'] === $user['id']) { ?>
+                                <p><?php echo $user['pseudo']; ?></p>
+                            <?php } ?>
+                        <?php } ?>
+                        <li><?php echo $comment['content']; ?></li>
+                        
+                    <?php } ?>
+                    
+                </div>
+            <?php } ?>
+            
+        </div>
+    <?php } ?>
 
 
+</div>
 
 
 <?php require_once('inc/footer.php');

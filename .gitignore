@@ -1,0 +1,4 @@
+inc/pdo.php
+vendor/
+DS_Store
+.idea

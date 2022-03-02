@@ -227,3 +227,14 @@ function isloggedAdmin() {
     }
     return false;
 }
+
+function pagination($page,$num,$count) {
+    echo '<ul class="pagination">';
+    if($page > 1) {
+        echo '<li><a href="index.php?page='. ($page - 1 ) . '"> <- </a></li>';
+    }
+    if($page*$num < $count) {
+        echo '<li><a href="index.php?page='. ($page + 1 ) . '"> -> </a></li>';
+    }
+    echo '</ul>';
+}

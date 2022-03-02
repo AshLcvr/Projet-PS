@@ -7,12 +7,7 @@ include_once('inc/fichier.php');
 include_once('inc/pdo.php');
 
 
-$sql = "SELECT * FROM blog_articles";
-$query = $pdo->prepare($sql);
-// proctection injection sql
-$query->execute();
-$articles  = $query->fetchAll();
-debug($articles);
+
 
 $sql = "SELECT * FROM blog_comments";
 $query = $pdo->prepare($sql);
@@ -43,6 +38,34 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
 }
 
 
+if (!empty($_POST['submitted']) && islogged()) {
+    
+    debug($_POST);
+    // faille xss
+    $commentaire = trim(strip_tags($_POST['commentaire']));
+    $status = 'new';
+    $article_id = $id;
+    $user_id = $_SESSION['user']['id'];
+
+
+    // Validation
+    
+    debug($error);
+    // if no error
+    if (count($error) == 0) {
+        $sql = "INSERT INTO blog_comments ( id_article, content, user_id, created_at, modified_at, status) VALUES (:id_article, :content, :user_id, NOW(), NOW(), :status)";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id_article',$id_article, PDO::PARAM_INT);
+        $query->bindValue(':content',$commentaire, PDO::PARAM_STR);
+        $query->bindValue(':user_id',$user_id, PDO::PARAM_INT);
+        $query->bindValue(':status',$status, PDO::PARAM_STR);
+        $query->execute();
+        //header('Location: index.php');
+    }
+
+}
+
+
 
 
 
@@ -64,7 +87,7 @@ require_once('inc/header.php'); ?>
             </form>
         <?php } ?>
         <?php foreach ($comments as $key => $comment) { ?>
-            <?php if ($article['id'] === $comment['id_article']) { ?>
+            <?php if ($article['id'] === $comment['id_article'] && $comment['status'] === 'publish') { ?>
                 <div class="minibloc2">
                     <ul>
                         <?php foreach ($users as $key => $user) { ?>

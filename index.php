@@ -11,58 +11,77 @@ $error = array();
 $commentaire = '';
 
 
-$sql = "SELECT * FROM blog_articles";
-$query = $pdo->prepare($sql);
-// proctection injection sql
-$query->execute();
-$articles  = $query->fetchAll();
-debug($articles);
+
 
 $sql = "SELECT * FROM blog_comments";
 $query = $pdo->prepare($sql);
 // proctection injection sql
 $query->execute();
 $comments  = $query->fetchAll();
-debug($comments);
 
 $sql = "SELECT * FROM blog_users";
 $query = $pdo->prepare($sql);
 // proctection injection sql
 $query->execute();
 $users  = $query->fetchAll();
-debug($users);
-
-if (!empty($_POST['submitted'])) {
-    
-    debug($_POST);
-    // faille xss
-    $commentaire = trim(strip_tags($_POST['commentaire']));
 
 
-    // Validation
-    if (!islogged()) {
-        header('Location: connexion.php'); 
+
+
+$nbArticles = 6;
+$ordre = 'DESC';
+$page = 1;
+
+
+
+if(!empty($_POST['submittedd'])){
+
+
+    if (!empty($_POST['tri']) && $_POST['tri'] !== 'Nombre de rêves par page :'){
+        $nbArticles = $_POST['tri'];
     }
-
-   
-    
-
-
-    debug($error);
-   
-    
-    // if no error
-    if (count($error) == 0) {
-
+    if(!empty($_POST['ordre']) &&  $_POST['ordre'] !== 'Ordre d\'affichage :'){
+        $ordre = $_POST['ordre'];
     }
-
 }
+
+$offset = $nbArticles * $page - $nbArticles;
+
+$sql = "SELECT * FROM blog_articles ORDER BY created_at $ordre LIMIT $nbArticles OFFSET $offset";
+$query = $pdo->prepare($sql);
+// proctection injection sql
+$query->execute();
+$articles  = $query->fetchAll();
+
+
+
+$sql = "SELECT COUNT(id) FROM blog_articles";
+$query = $pdo->prepare($sql);
+$query->execute();
+$count = $query->fetchColumn();
+
 
 
 
 require_once('inc/header.php'); ?>
+<form action="" method="post" class="tribox">
+        <select class="tri" name="tri">
+            <option value="6"> Nombre de rêves : </option>
+            <option value="2" > 2 </option>
+            <option value="4" > 4 </option>
+            <option value="6" > 6 </option>
+            <option value="8" > 8 </option>
+            <option value="<?= $count ?>" > Voir tout </option>
+        </select>
+        <select class="tri" name="ordre">
+            <option value="DESC"> Ordre d'affichage : </option>
+            <option value="DESC"> Les plus récents </option>
+            <option value="ASC"> Les plus anciens </option>
+        </select>
+        <input type="submit" name="submittedd" value="Trier">
+    </form>
+    <?php pagination($page, $nbArticles, $count); ?>
 <div id="contenerArticles">
-
     <?php foreach ($articles as $key => $article) { ?>
         <div class="bloc bloc<?php echo $key; ?>">
             <a class="minibloc1" href="detail-article.php?id=<?php echo $article['id']; ?>">
@@ -73,7 +92,7 @@ require_once('inc/header.php'); ?>
             <?php if (!$article['created_at'] === $article['modified_at']) { ?>
                 <p><?php echo $article['modified']; ?></p>
             <?php } ?>
-            <?php if (islogged()) { ?>
+            <?php if (!islogged()) { ?>
                 <div class="separator"></div>
                 <form class="monForm" action="" method="POST" novalidate>
                     <?php echo label('commentaire','Commentaire') ?>
@@ -82,25 +101,27 @@ require_once('inc/header.php'); ?>
                 </form>
             <?php } ?>
             <?php foreach ($comments as $key => $comment) { ?>
-                <div class="minibloc2">
-                    <ul>
-                        <?php if ($article['id'] === $comment['id_article']) { ?>
+                <?php if ($article['id'] === $comment['id_article'] && $comment['status'] === 'publish') { ?>
+                    <div class="minibloc2">
+                        <ul>
                             <?php foreach ($users as $key => $user) { ?>
                                 <?php if ($comment['id_article'] === $user['id']) { ?>
                                     <p><?php echo $user['pseudo']; ?>:&nbsp;</p>
                                 <?php } ?>
                             <?php } ?>
                             <li><?php echo $comment['content']; ?></li>
-                        <?php } ?>
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
+                <?php } ?>
             <?php } ?>
             
         </div>
     <?php } ?>
+    
 
 
 </div>
+<?php pagination($page, $nbArticles, $count); ?>
 
 
 <?php require_once('inc/footer.php');

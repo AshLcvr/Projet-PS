@@ -3,7 +3,7 @@ session_start();
 require('inc/fonction.php');
 require('inc/pdo.php');
 
-
+$title = 'Ajout d\'un article';
 $errors= [];
 $titre = '';
 $content = '';

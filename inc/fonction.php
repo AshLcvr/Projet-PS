@@ -260,7 +260,7 @@ function islogged() {
 
 function isloggedAdmin() {
     if (islogged()) {
-        if (!empty($_SESSION['user']['role']) === 'admin') {
+        if ($_SESSION['user']['role'] === 'admin') {
             return true;
         }
     }

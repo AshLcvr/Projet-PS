@@ -15,19 +15,26 @@
         <header>
             <nav>
                 <img src="asset/img/logo1mini.png" alt="">
+                <?php
+
+                ?>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <?php if (islogged()) { ?>
-                        <li><a href="index.php">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a></li>
+                    <?php if(isloggedAdmin()) {  ?>
+                        <li><a href="admin/index.php">Admin</a></li>
+                    <?php } ?>
+                    <?php if (islogged()) {
+                        $sql = "SELECT * FROM blog_users WHERE email = :mail";
+                        $query = $pdo->prepare($sql);
+                        $query->bindValue(':mail', $_SESSION['user']['email'], PDO::PARAM_STR);
+                        $query->execute();
+                        $user = $query->fetch();?>
+                        <li><a href="modif-user.php?email=<?= urlencode($user['email']);?>&token=<?=urlencode($user['token']);?>"> Mon Profil</a></li>
                         <li><a href="logout.php">Déconnexion</a></li>
-                            <?php if(isloggedAdmin()) {  ?>
-                                <li><a href="admin/index.php">Admin</a></li>
-                            <?php } ?>
                         <?php } else{ ?>
                         <li><a href="register.php">Inscription</a></li>
                         <li><a href="login.php">Connexion</a></li>
-                    <?php }
-                    debug($_SESSION);?>
+                    <?php } ?>
                 </ul>
             </nav>
         </header>

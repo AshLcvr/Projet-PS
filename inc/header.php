@@ -20,9 +20,10 @@
                     <?php if (islogged()) { ?>
                         <li><a href="index.php">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a></li>
                         <li><a href="logout.php">Déconnexion</a></li>
+                        <?php debug($_SESSION) ?>
                     <?php }else{ ?>
-                      <li><a href="inscription.php">inscription</a></li>
-                        <li><a href="connexion.php">connexion</a></li>
+                      <li><a href="register.php">Inscription</a></li>
+                        <li><a href="login.php">Connexion</a></li>
                     <?php } ?>
                     
                 </ul>

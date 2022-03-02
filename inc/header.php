@@ -18,8 +18,9 @@
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <?php if (islogged()) { ?>
-                        <li><a href="modif-user.php">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a></li>
+                        <li><a href="index.php">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a></li>
                         <li><a href="logout.php">Déconnexion</a></li>
+                        <?php debug($_SESSION) ?>
                     <?php }else{ ?>
                       <li><a href="register.php">Inscription</a></li>
                         <li><a href="login.php">Connexion</a></li>

@@ -8,6 +8,12 @@ function getAllPDO($table){
     return $query->fetchAll();
 }
 
+function urlRemovelast($url) {
+    $url = explode('/', $url);
+    array_pop($url);
+    return implode('/', $url);
+}
+
 function debug($tableau) {
     echo '<pre style="height: 200px;overflow-Y: scroll;font-size: 0.7rem;padding: 0.6rem;font-familly: Consolas, Monospace;background-color: black;color: white;text-align: left;">';
         print_r($tableau);
@@ -26,6 +32,7 @@ function validateText($errors, $value, $key, $min, $max){
     }
     return $errors;
 }
+
 
 
 function validateEmail($errors, $value, $key ){

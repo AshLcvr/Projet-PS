@@ -13,7 +13,6 @@ $commentaire = '';
 
 $sql = "SELECT * FROM blog_articles";
 $query = $pdo->prepare($sql);
-// proctection injection sql
 $query->execute();
 $articles  = $query->fetchAll();
 

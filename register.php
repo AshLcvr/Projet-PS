@@ -81,7 +81,6 @@ include('inc/header.php'); ?>
                 <?= label('mail', 'Email :') ?>
                 <input type="email" name="mail" id="mail" value="<?php valueNoReset('mail'); ?>">
                 <?= spanError('mail', $errors); ?>
-
             </div>
             <div class="bloc">
                 <?= label('password', 'Mot de passe :') ?>

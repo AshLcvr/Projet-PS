@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: aqua;
+}
+
+#content{
+    text-align: center; 
+}
+
+header{
+    background-color: grey;
+    padding: 1rem 3rem;
+    width: 100%;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav img{
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+header nav img:hover{
+    transform: scale(1.2);
+}
+
+header nav ul{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: blue;
+    transition: all 0.4s;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    background-color: white;
+}
+
+header nav ul li a:hover{
+    background-color: black;
+    color: green;
+}
+
+.monForm{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.monForm input[type=submit]{
+    width: 30%;
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+    margin-top: 0.5rem;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+.monForm input[type=submit]:hover{
+    background-color: black;
+    color: white;
+}
+
+
+.bloc{
+    display: flex;
+    flex-flow: column;
+    width: 30%;
+    margin: 0.5rem;
+}
+
+.bloc input{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+    margin-top: 0.5rem;
+}
+.bloc select{
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+    margin-top: 0.5rem;
+}
+
+.bloc2 .minibloc{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.bloc2 .minibloc input{
+    width: 20%;
+}
+
+.bloc2 .minibloc label{
+    width: 20%;
+}
+
+.bloc select{
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+}
+
+.content_admin{
+    width: 100%;
+    height: 50vh;
+    resize: none;
+}

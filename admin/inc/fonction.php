@@ -1,5 +1,20 @@
 <?php
 
+function validateText($errors, $value, $key, $min, $max){
+    if(!empty($_POST['submitted'])){
+        if(!empty($value)){
+            if(mb_strlen($value) < $min || mb_strlen($value) > $max){
+                $errors[$key] = 'Ce champ doit comporter '.$min.' à '.$max.' caractères';
+            }
+        }else{
+            $errors[$key] = 'Veuillez renseigner ce champ!';
+        }
+    }
+    return $errors;
+}
+
+
+
 function getAllPDO($table){
     global $pdo;
     $sql = "SELECT * FROM $table ";
@@ -189,8 +204,6 @@ function inputNumberEdit($donnes, $newDonnes, $clef) {
         $html .= '">';
     return $html;
 }
-
-
 
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

@@ -16,15 +16,10 @@
             <nav>
                 <img src="asset/img/logo1mini.png" alt="">
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <?php if (islogged()) { ?>
-                        <li><a href="index.php">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a></li>
-                        <li><a href="logout.php">Déconnexion</a></li>
-                    <?php }else{ ?>
-                      <li><a href="inscription.php">inscription</a></li>
-                        <li><a href="connexion.php">connexion</a></li>
-                    <?php } ?>
-                    
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="index.php">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a></li>
+                    <li><a href="add-article.php">Ajouter un article</a></li>
+                    <li><a href="../logout.php">Déconnexion</a></li>
                 </ul>
             </nav>
         </header>

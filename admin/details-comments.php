@@ -23,9 +23,9 @@ include('inc/header.php');
                     <div class="minibloc">
                         <p><?php echo $comment['content']; ?></p>
                         <p> créer le : <?php echo $comment['created_at']; ?></p>
+                        <?php if(($comment['modified_at']) !== NULL){ echo '<p>Modifié le '.$comment['modified_at'].'</p>';} ?>
                         <p> status: <?php echo $comment['status']; ?></p>
                     </div>
-                <a href="publish-comments.php?id=<?php echo $comment['id']; ?>">publier</a>
             </div>
         <?php } ?>
     </div>

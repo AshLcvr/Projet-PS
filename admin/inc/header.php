@@ -37,9 +37,14 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.php">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../index.php">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>HomeFront</span></a>
         </li>
 
         <!-- Divider -->
@@ -62,8 +67,8 @@
             <div id="collapseArticles" class="collapse show" aria-labelledby="headingPages"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="login.html">Voir tous</a>
-                    <a class="collapse-item" href="login.html">Modération</a>
+                    <a class="collapse-item" href="details-articles.php">Voir tous</a>
+                    <a class="collapse-item" href="details-newArticles.php">Nouveaux articles</a>
                     <div class="collapse-divider"></div>
 
                 </div>
@@ -79,8 +84,25 @@
             <div id="collapseCommentaires" class="collapse show" aria-labelledby="headingPages"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="login.html">Voir tous</a>
-                    <a class="collapse-item" href="login.html">Nouvel article</a>
+                    <a class="collapse-item" href="details-comments.php">Voir tous</a>
+                    <a class="collapse-item" href="details-newComments.php">Modération</a>
+                    <div class="collapse-divider"></div>
+
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true"
+               aria-controls="collapseCommentaires">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Users</span>
+            </a>
+            <div id="collapseUsers" class="collapse show" aria-labelledby="headingPages"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="details-users.php">Voir tous</a>
+                    <a class="collapse-item" href="details-newUsers.php">Nouveaux Users</a>
                     <div class="collapse-divider"></div>
 
                 </div>

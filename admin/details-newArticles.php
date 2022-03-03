@@ -4,8 +4,9 @@ include('../inc/pdo.php');
 include('inc/fonction.php');
 
 
+$nbArticles = 4;
 $ordre = 'DESC';
-$sql = "SELECT * FROM blog_articles ORDER BY created_at $ordre";
+$sql = "SELECT * FROM blog_articles ORDER BY created_at $ordre LIMIT $nbArticles";
 $query = $pdo->prepare($sql);
 // proctection injection sql
 $query->execute();
@@ -25,7 +26,6 @@ include('inc/header.php');
                 <h1><?php echo $article['title']; ?></h1>
                 <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
                 <h4>Cette article a été créé le <?php echo $article['created_at']; ?></h4>
-                <?php if(($article['modified_at']) !== NULL){ echo '<h4>Modifié le '.$article['modified_at'].'</h4>';} ?>
             </a>
         <?php } ?>
     </div>

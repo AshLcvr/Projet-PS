@@ -72,10 +72,10 @@ require_once('inc/header.php'); ?>
 
 
 <section id="homepage" class="wrap">
-    <h1>Bienvenue sur Blog2Ouf !</h1>
+    <h1 class="main_title">Bienvenue sur Blog2Ouf !</h1>
     <form action="" method="post" class="tribox">
         <select class="tri" name="tri">
-            <option value="6"> Nombre de rêves : </option>
+            <option value="6"> Nombre d'articles': </option>
             <option value="2" > 2 </option>
             <option value="4" > 4 </option>
             <option value="6" > 6 </option>
@@ -89,7 +89,10 @@ require_once('inc/header.php'); ?>
         </select>
         <input type="submit" name="submittedd" value="Trier">
     </form>
-    <?php pagination($page, $nbArticles, $count); ?>
+    <div class="center">
+        <?php pagination($page, $nbArticles, $count); ?>
+    </div>
+
 
     <div id="contenerArticles">
         <?php foreach ($articles as $key => $article) { ?>
@@ -121,7 +124,9 @@ require_once('inc/header.php'); ?>
             <?php } ?>
         <?php } ?>
     </div>
-    <?php pagination($page, $nbArticles, $count); ?>
+    <div class="center">
+        <?php pagination($page, $nbArticles, $count); ?>
+    </div>
 </section>
 
 

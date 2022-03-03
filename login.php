@@ -55,8 +55,9 @@ include('inc/header.php'); ?>
                 <?= spanError('password', $errors); ?>
             </div>
 
-            <input type="submit" name="submitted" value="Connectez-Vous">
-            <p><a href="forget-password.php">Mot de passe oublié</a></p>
+            <input type="submit" name="submitted" value="Connectez-Vous"><br>
+
+            <p><a href="forget-password.php" style="color: white">Mot de passe oublié?</a></p>
         </form>
     </div>
 <?php include('inc/footer.php');

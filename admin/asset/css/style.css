@@ -4,9 +4,6 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: aqua;
-}
 
 #content{
     text-align: center; 
@@ -128,19 +125,23 @@ header nav ul li a:hover{
 #contenerGlobal{
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
 }
 
-#contenerGlobal h1{
-    text-align: center;
-}
 
 #contenerGlobal .contenerArticle{
     width: 100%;
-    border: 1px solid red;
+    border: 3px solid #355CCC;
+    border-radius: 10px;
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
     padding: 0 2rem;
-    
+}
+
+#contenerGlobal .contenerArticle .titre_article{
+    width: 100%;
+    margin: 1rem 0;
 }
 
 #contenerGlobal .contenerArticle .bloc{
@@ -150,11 +151,15 @@ header nav ul li a:hover{
     border-radius: 6px;
     text-decoration: none;
     color: black;
+    box-shadow: 15px 5px 5px lightgrey;
+    margin-bottom: 1rem;
 }
 
 #contenerGlobal .contenerComment{
-    width: 50%;
-    border: 1px solid red;
+    margin-top: 2rem;
+    width: 48%;
+    border: 3px solid #355CCC;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
 }
@@ -180,8 +185,10 @@ header nav ul li a:hover{
 }
 
 #contenerGlobal .contenerUsers{
-    width: 50%;
-    border: 1px solid red;
+    margin-top: 2rem;
+    width: 48%;
+    border: 3px solid #355CCC;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
@@ -193,6 +200,8 @@ header nav ul li a:hover{
     text-decoration: none;
     color: black;
     border-radius: 6px;
-    width: 90%;
+    border: #355CCC solid 2px;
+    width: 50%;
+
 }
 /* ///////////////////////////////////////////// */

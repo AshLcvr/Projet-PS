@@ -121,3 +121,62 @@ header nav ul li a:hover{
     height: 50vh;
     resize: none;
 }
+
+/* ///////////////////////////////////////////// */
+/* index admin */
+
+#contenerGlobal{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#contenerGlobal .contenerArticle{
+    width: 100%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    
+}
+
+#contenerGlobal .contenerArticle .bloc{
+    width: 20%;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+}
+
+#contenerGlobal .contenerComment{
+    width: 50%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+#contenerGlobal .contenerComment .bloc{
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 6px;
+    width: 90%;
+}
+
+#contenerGlobal .contenerUsers{
+    width: 50%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+
+#contenerGlobal .contenerUsers .bloc{
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 6px;
+    width: 90%;
+}
+/* ///////////////////////////////////////////// */

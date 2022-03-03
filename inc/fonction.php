@@ -142,9 +142,9 @@ function inputTextEdit($key, $donnes, $newDonnes) {
     $html = '';
     $html.= '<input type="text" name="'.$key.'" id="'.$key.'" value="';
     if (!empty($donnes)) {
-        $html .= $donnes;  
+        $html .= $newDonnes;  
     }else{
-        $html .= $newDonnes[$key];
+        $html .= $donnes[$key];
     }
         $html.= '">';
     return $html;

@@ -6,6 +6,8 @@ require_once('inc/fonction.php');
 include_once('inc/fichier.php');
 include_once('inc/pdo.php');
 
+$error = array();
+
 
 
 
@@ -44,7 +46,7 @@ if (!empty($_POST['submitted']) && islogged()) {
     // faille xss
     $commentaire = trim(strip_tags($_POST['commentaire']));
     $status = 'new';
-    $article_id = $id;
+    $id_article = $id;
     $user_id = $_SESSION['user']['id'];
 
 
@@ -78,7 +80,7 @@ require_once('inc/header.php'); ?>
             <p><?php echo $article['content']; ?></p>
         </div>
         <h4>Cette article a été créé le <?php echo $article['created_at']; ?></h4>
-        <?php if (!islogged()) { ?>
+        <?php if (islogged()) { ?>
             <div class="separator"></div>
             <form class="monForm" action="" method="POST" novalidate>
                 <?php echo label('commentaire','Commentaires') ?>

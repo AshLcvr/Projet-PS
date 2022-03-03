@@ -15,6 +15,7 @@
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -61,7 +62,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseArticles" aria-expanded="true"
                aria-controls="collapseArticles">
-                <i class="fas fa-fw fa-folder"></i>
+                <i class="fa-solid fa-newspaper"></i>
                 <span>Articles</span>
             </a>
             <div id="collapseArticles" class="collapse show" aria-labelledby="headingPages"
@@ -78,7 +79,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseCommentaires" aria-expanded="true"
                aria-controls="collapseCommentaires">
-                <i class="fas fa-fw fa-folder"></i>
+               <i class="fa-solid fa-comment"></i>
                 <span>Commentaires</span>
             </a>
             <div id="collapseCommentaires" class="collapse show" aria-labelledby="headingPages"
@@ -95,7 +96,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true"
                aria-controls="collapseCommentaires">
-                <i class="fas fa-fw fa-folder"></i>
+               <i class="fa-solid fa-user"></i>
                 <span>Users</span>
             </a>
             <div id="collapseUsers" class="collapse show" aria-labelledby="headingPages"

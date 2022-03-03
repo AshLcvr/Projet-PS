@@ -56,8 +56,6 @@ $query = $pdo->prepare($sql);
 // proctection injection sql
 $query->execute();
 $articles  = $query->fetchAll();
-debug($articles);
-
 
 
 $sql = "SELECT COUNT(id) FROM blog_articles";

@@ -97,14 +97,6 @@ require_once('inc/header.php'); ?>
             <?php if (!$article['created_at'] === $article['modified_at']) { ?>
                 <p><?php echo $article['modified']; ?></p>
             <?php } ?>
-            <?php if (!islogged()) { ?>
-                <div class="separator"></div>
-                <form class="monForm" action="" method="POST" novalidate>
-                    <?php echo label('commentaire','Commentaire') ?>
-                    <textarea placeholder="Laissez un commentaire" name="commentaire"></textarea>
-                    <input type="submit" name="submitted" value="Envoyer">
-                </form>
-            <?php } ?>
             <?php foreach ($comments as $key => $comment) { ?>
                 <?php if ($article['id'] === $comment['id_article'] && $comment['status'] === 'publish') { ?>
                     <div class="minibloc2">

@@ -157,10 +157,6 @@ header nav ul li a:hover{
     padding: 1rem;
 }
 
-#contenerArticles .bloc .separator{
-    margin-top: 1rem;
-}
-
 #contenerArticles .bloc .minibloc1{
     width: 100%;
     display: flex;
@@ -190,21 +186,6 @@ header nav ul li a:hover{
     margin-bottom: 1rem;
 }
 
-#contenerArticles .bloc form{
-    margin: 1rem;
-}
-
-#contenerArticles .bloc form textarea{
-    width: 100%;
-    margin: 1rem 0;
-    padding: 1rem 0 3rem 1rem;
-    resize: none;
-}
-
-#contenerArticles .bloc form input{
-    width: 60%;
-}
-
 
 /* ///////////////////////////////////////////// */
 /* page detail article front */
@@ -219,6 +200,10 @@ header nav ul li a:hover{
     margin: 1rem;
     padding: 1rem;
     border-radius: 6px;
+}
+
+#contenerArticle .blocArticle .separator{
+    margin-top: 1rem;
 }
 
 #contenerArticle .blocArticle .minibloc{

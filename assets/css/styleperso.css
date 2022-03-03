@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+ul,li {
+    list-style: none;
+}
 
 .wrap{
     width: 1080px;
@@ -130,13 +133,25 @@ header nav ul li a:hover{
 /* ///////////////////////////////////////////// */
 /* contenerArticles front */
 
+.main_title{
+    font-size: 3rem;
+}
+
+.tribox{
+    margin: 3rem auto;
+
+}
+
 #contenerArticles{
+
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
 }
 
 #contenerArticles .bloc{
+    width: 100%;
     display: flex;
     flex-flow: column;
     align-items: center;

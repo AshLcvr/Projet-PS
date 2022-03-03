@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('../vendor/autoload.php');
 require('inc/fonction.php');
 require('../inc/pdo.php');
 
@@ -9,7 +10,7 @@ $titre = '';
 $content = '';
 $image = '';
 
-
+use Intervention\Image\ImageManagerStatic as Image;
 if(!empty($_POST['submitted'])) {
     $titre = trim(strip_tags($_POST['titre']));
     $content = trim(strip_tags($_POST['content']));
@@ -47,9 +48,18 @@ if(!empty($_POST['submitted'])) {
         // upload
         $point = strrpos($file_name, '.');
         $extension = substr($file_name,$point, strlen($file_name) - $point);
-        $newfile = time() . '-' . generateRandomString(12).$extension;
+        $newfile = time() . '-' . generateRandomString(12);
         if(!is_dir('upload')) {
             mkdir('upload');
+        }
+        if(move_uploaded_file($file_tmp, 'upload/' . $newfile.$extension)) {
+            $img = Image::make('upload/' . $newfile.$extension);
+            $img->fit(200, 200);
+            $img->save('upload/' . $newfile.'-200x200'.$extension);
+
+            $img2 = Image::make('upload/' . $newfile.$extension);
+            $img2->fit(500, 300);
+            $img2->save('upload/' . $newfile.'-500x300'.$extension);
         }
 
         $sql = "INSERT INTO blog_articles (title, content, created_at, status, user_id, image) VALUES (:title, :content, NOW(), 'publish', 1, :image )";

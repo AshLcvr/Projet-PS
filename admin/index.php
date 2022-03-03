@@ -35,9 +35,11 @@ include('inc/header.php');
             <div class="titre_article"><h1> Derniers articles : </h1></div>
             <?php foreach ($articles as $key => $article) { ?>
                 <a class="bloc" href="edit-articles.php?id=<?php echo $article['id']; ?>">
-                    <h1><?php echo $article['title']; ?></h1>
-                    <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
-                    <h4>Cette article a été créé le <?php echo $article['created_at']; ?></h4>
+                    <h2><?php echo $article['title']; ?></h2>
+                    <div class="minibloc">
+                        <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
+                        <p>Cet article a été créé le <?php echo $article['created_at']; ?></p>
+                    </div>
                 </a>
             <?php } ?>
         </div>

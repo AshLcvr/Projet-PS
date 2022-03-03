@@ -57,8 +57,9 @@ if (!empty($_POST['submitted']) && islogged()) {
     }
 
 }
-debug($article);
+
 require_once('inc/header.php'); ?>
+
 <div id="contenerArticle">
     <div class="blocArticle">
         <h1><?php echo $article['title']; ?></h1>

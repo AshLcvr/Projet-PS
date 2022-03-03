@@ -43,21 +43,25 @@ include('inc/header.php');
         <?php } ?>
     </div>
     <div class="contenerComment">
-            <?php foreach ($comments as $key => $comment) { ?>
-                    <a class="bloc" href="edit-comments.php?id=<?php echo $comment['id']; ?>">
+        <?php foreach ($comments as $key => $comment) { ?>
+            <div class="bloc">
+                <a href="delete-comments.php?id=<?php echo $comment['id']; ?>">delete</a>
+                    <div class="minibloc">
                         <p><?php echo $comment['content']; ?></p>
                         <p> créer le : <?php echo $comment['created_at']; ?></p>
                         <p> status: <?php echo $comment['status']; ?></p>
-                    </a>
-            <?php } ?>
+                    </div>
+                <a href="publish-comments.php?id=<?php echo $comment['id']; ?>">publier</a>
+            </div>
+        <?php } ?>
     </div>
     <div class="contenerUsers">
-            <?php foreach ($users as $key => $user) { ?>
-                    <a class="bloc" href="edit-users.php?id=<?php echo $user['id']; ?>">
-                        <p><?php echo $user['pseudo']; ?></p>
-                        <p><?php echo $user['created_at']; ?></p>
-                    </a>
-            <?php } ?>
+        <?php foreach ($users as $key => $user) { ?>
+                <a class="bloc" href="edit-users.php?id=<?php echo $user['id']; ?>">
+                    <p><?php echo $user['pseudo']; ?></p>
+                    <p><?php echo $user['created_at']; ?></p>
+                </a>
+        <?php } ?>
     </div>
 </div>
 

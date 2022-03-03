@@ -67,8 +67,8 @@ require_once('inc/header.php'); ?>
             <p><?php echo $article['content']; ?></p>
         </div>
         <h4>Cet article a été créé le <?php echo $article['created_at']; ?></h4>
-        <?php if(!empty($article['modified_at'])){ echo '<h4>Modifié le '.$article['modified_at'].'</h4>';} ?>
-        <?php if (!islogged()) { ?>
+        <?php if(($article['modified_at']) !== NULL){ echo '<h4>Modifié le '.$article['modified_at'].'</h4>';} ?>
+        <?php if (islogged()) { ?>
 
             <div class="separator"></div>
             <form class="monForm" action="" method="POST" novalidate>
@@ -98,6 +98,7 @@ require_once('inc/header.php'); ?>
 
 <?php if (isloggedAdmin()) { ?>
     <a href="admin/edit-articles.php?id=<?php echo $id; ?>">EDIT</a>
+    <a href="admin/delete-articles.php?id=<?php echo $id; ?>">delete</a>
 <?php } ?>
 
 

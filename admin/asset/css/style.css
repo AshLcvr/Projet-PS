@@ -161,6 +161,18 @@ header nav ul li a:hover{
     color: black;
     border-radius: 6px;
     width: 90%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#contenerGlobal .contenerComment a{
+    width: 10%;
+}
+
+#contenerGlobal .contenerComment .minibloc{
+    width: 50%;
 }
 
 #contenerGlobal .contenerUsers{

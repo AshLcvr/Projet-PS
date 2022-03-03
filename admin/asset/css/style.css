@@ -130,6 +130,10 @@ header nav ul li a:hover{
     flex-flow: row wrap;
 }
 
+#contenerGlobal h1{
+    text-align: center;
+}
+
 #contenerGlobal .contenerArticle{
     width: 100%;
     border: 1px solid red;

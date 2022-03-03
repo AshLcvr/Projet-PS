@@ -18,7 +18,6 @@ $sql = "SELECT * FROM blog_users ORDER BY created_at $ordre LIMIT $nbArticles OF
 $query = $pdo->prepare($sql);
 $query->execute();
 $users  = $query->fetchAll();
-debug($users);
 
 $sql = "SELECT * FROM blog_articles ORDER BY created_at $ordre LIMIT $nbArticles OFFSET $offset";
 $query = $pdo->prepare($sql);
@@ -32,16 +31,20 @@ include('inc/header.php');
 ?>
 
 <h1> Bienvenue sur le Back-Office</h1>
-<div id="contenerGlobal">
-    <div class="contenerArticle">
-        <?php foreach ($articles as $key => $article) { ?>
-            <a class="bloc" href="edit-articles.php?id=<?php echo $article['id']; ?>">
-                <h1><?php echo $article['title']; ?></h1>
-                <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
-                <h4>Cette article a été créé le <?php echo $article['created_at']; ?></h4>
-            </a>
-        <?php } ?>
+<div id="contenerGlobal" class="container-fluid">
+    <div>
+        <h1> Derniers articles : </h1>
+        <div class="contenerArticle">
+            <?php foreach ($articles as $key => $article) { ?>
+                <a class="bloc" href="edit-articles.php?id=<?php echo $article['id']; ?>">
+                    <h1><?php echo $article['title']; ?></h1>
+                    <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
+                    <h4>Cette article a été créé le <?php echo $article['created_at']; ?></h4>
+                </a>
+            <?php } ?>
+        </div>
     </div>
+
     <div class="contenerComment">
             <?php foreach ($comments as $key => $comment) { ?>
                     <a class="bloc" href="edit-comments.php?id=<?php echo $comment['id']; ?>">

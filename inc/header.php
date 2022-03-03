@@ -12,6 +12,7 @@
   </head>
   <body>
       <div id="content">
+
         <header>
             <nav>
                 <img src="asset/img/logo1mini.png" alt="">

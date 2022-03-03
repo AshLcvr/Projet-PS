@@ -30,11 +30,9 @@ $title = 'Admin Dashboard';
 include('inc/header.php');
 ?>
 
-<h1> Bienvenue sur le Back-Office</h1>
 <div id="contenerGlobal" class="container-fluid">
-    <div>
-        <h1> Derniers articles : </h1>
         <div class="contenerArticle">
+            <div class="titre_article"><h1> Derniers articles : </h1></div>
             <?php foreach ($articles as $key => $article) { ?>
                 <a class="bloc" href="edit-articles.php?id=<?php echo $article['id']; ?>">
                     <h1><?php echo $article['title']; ?></h1>
@@ -43,9 +41,10 @@ include('inc/header.php');
                 </a>
             <?php } ?>
         </div>
-    </div>
+
 
     <div class="contenerComment">
+        <div><h1>Derniers commentaires:</h1></div>
         <?php foreach ($comments as $key => $comment) { ?>
             <div class="bloc">
                 <div class="minibloc">
@@ -57,6 +56,7 @@ include('inc/header.php');
         <?php } ?>
     </div>
     <div class="contenerUsers">
+        <div><h1> Dernières inscriptions : </h1></div>
         <?php foreach ($users as $key => $user) { ?>
                 <a class="bloc" href="edit-users.php?id=<?php echo $user['id']; ?>">
                     <p><?php echo $user['pseudo']; ?></p>

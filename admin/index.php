@@ -48,13 +48,11 @@ include('inc/header.php');
     <div class="contenerComment">
         <?php foreach ($comments as $key => $comment) { ?>
             <div class="bloc">
-                <a href="delete-comments.php?id=<?php echo $comment['id']; ?>">delete</a>
-                    <div class="minibloc">
-                        <p><?php echo $comment['content']; ?></p>
-                        <p> créer le : <?php echo $comment['created_at']; ?></p>
-                        <p> status: <?php echo $comment['status']; ?></p>
-                    </div>
-                <a href="publish-comments.php?id=<?php echo $comment['id']; ?>">publier</a>
+                <div class="minibloc">
+                    <p><?php echo $comment['content']; ?></p>
+                    <p> créer le : <?php echo $comment['created_at']; ?></p>
+                    <p> status: <?php echo $comment['status']; ?></p>
+                </div>
             </div>
         <?php } ?>
     </div>

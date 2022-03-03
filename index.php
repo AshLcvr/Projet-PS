@@ -99,7 +99,7 @@ require_once('inc/header.php'); ?>
             <?php if ($article['status'] === 'publish') { ?>
                 <div class="bloc bloc<?php echo $key; ?>">
                     <a class="minibloc1" href="detail-article.php?id=<?php echo $article['id']; ?>">
-                        <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
+                        <img src="admin/upload/<?php echo $article['image']; ?>.jpg" alt="<?php $article['title']; ?>">
                         <h2><?php echo $article['title']; ?></h2>
                     </a>
                     <h4>Cette article a été créé le <?php echo $article['created_at']; ?></h4>

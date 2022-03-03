@@ -37,7 +37,7 @@ include('inc/header.php');
                 <a class="bloc" href="edit-articles.php?id=<?php echo $article['id']; ?>">
                     <h2><?php echo $article['title']; ?></h2>
                     <div class="minibloc">
-                        <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
+                        <img src="upload/<?php echo $article['image']; ?>.jpg" alt="<?php $article['title']; ?>">
                         <p>Cet article a été créé le <?php echo $article['created_at']; ?></p>
                     </div>
                 </a>

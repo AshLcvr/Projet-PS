@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('inc/pdo.php');
+include('../inc/pdo.php');
 include('inc/fonction.php');
 
 $sql = "SELECT * FROM blog_comments WHERE status='new'";

@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('inc/fonction.php');
-require('inc/pdo.php');
+require('../inc/pdo.php');
 
 $title = 'Ajout d\'un article';
 $errors= [];
@@ -47,7 +47,7 @@ if(!empty($_POST['submitted'])) {
         // upload
         $point = strrpos($file_name, '.');
         $extension = substr($file_name,$point, strlen($file_name) - $point);
-        $newfile = time() . '-' . generateRandomString(12);
+        $newfile = time() . '-' . generateRandomString(12).$extension;
         if(!is_dir('upload')) {
             mkdir('upload');
         }

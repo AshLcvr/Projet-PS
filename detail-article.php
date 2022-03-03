@@ -63,7 +63,7 @@ require_once('inc/header.php'); ?>
     <div class="blocArticle">
         <h1><?php echo $article['title']; ?></h1>
         <div class="minibloc">
-            <img src="admin/upload/<?php echo $article['image']; ?>.jpg" alt="<?php $article['title']; ?>">
+            <img src="admin/upload/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
             <p><?php echo $article['content']; ?></p>
         </div>
         <h4>Cet article a été créé le <?php echo $article['created_at']; ?></h4>

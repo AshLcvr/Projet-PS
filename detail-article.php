@@ -7,22 +7,18 @@ include_once('inc/fichier.php');
 include_once('inc/pdo.php');
 
 
-
-
 $sql = "SELECT * FROM blog_comments";
 $query = $pdo->prepare($sql);
 // proctection injection sql
 $query->execute();
 $comments  = $query->fetchAll();
-debug($comments);
+
 
 $sql = "SELECT * FROM blog_users";
 $query = $pdo->prepare($sql);
 // proctection injection sql
 $query->execute();
 $users  = $query->fetchAll();
-debug($users);
-
 
 
 if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
@@ -39,19 +35,14 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
 
 
 if (!empty($_POST['submitted']) && islogged()) {
-    
-    debug($_POST);
-    // faille xss
+
+
     $commentaire = trim(strip_tags($_POST['commentaire']));
     $status = 'new';
     $article_id = $id;
     $user_id = $_SESSION['user']['id'];
 
 
-    // Validation
-    
-    debug($error);
-    // if no error
     if (count($error) == 0) {
         $sql = "INSERT INTO blog_comments ( id_article, content, user_id, created_at, modified_at, status) VALUES (:id_article, :content, :user_id, NOW(), NOW(), :status)";
         $query = $pdo->prepare($sql);
@@ -65,10 +56,6 @@ if (!empty($_POST['submitted']) && islogged()) {
 
 }
 
-
-
-
-
 require_once('inc/header.php'); ?>
 <div id="contenerArticle">
     <div class="blocArticle">
@@ -77,7 +64,8 @@ require_once('inc/header.php'); ?>
             <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
             <p><?php echo $article['content']; ?></p>
         </div>
-        <h4>Cette article a été créé le <?php echo $article['created_at']; ?></h4>
+        <h4>Cet article a été créé le <?php echo $article['created_at']; ?></h4>
+        <?php if(!empty($article['modified_at'])){ echo '<h4>Modifié le '.$article['modified_at'].'</h4>';} ?>
         <?php if (!islogged()) { ?>
             <div class="separator"></div>
             <form class="monForm" action="" method="POST" novalidate>

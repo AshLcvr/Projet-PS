@@ -1,15 +1,20 @@
 <?php
+session_start();
 require('inc/pdo.php');
 require('inc/fonction.php');
 require('inc/request.php');
 
 $errors = [];
+$pseudo = '';
+$mail = '';
+$password = '';
+$password2 = '';
 
 if(!empty($_GET['email']) && !empty($_GET['token'])) {
     $email = urldecode($_GET['email']);
     $token = urldecode($_GET['token']);
 
-    $sql = "SELECT * FROM user WHERE email = :email AND token = :token";
+    $sql = "SELECT * FROM blog_users WHERE email = :email AND token = :token";
     $query = $pdo->prepare($sql);
     $query->bindValue(':email', $email, PDO::PARAM_STR);
     $query->bindValue(':token', $token, PDO::PARAM_STR);
@@ -21,7 +26,6 @@ if(!empty($_GET['email']) && !empty($_GET['token'])) {
 } else {
     header('Location: index.php');
 }
-
 
 if(!empty($_POST['submitted'])) {
 
@@ -52,12 +56,10 @@ if(!empty($_POST['submitted'])) {
     }
 }
 
-
 include('inc/header.php'); ?>
     <div class="wrap">
         <h2>Modification  du profil</h2>
         <div class="wrap">
-            <h2>Inscription</h2>
             <form class="center monForm" action="" method="post" novalidate>
 
                 <div class="bloc">
@@ -81,7 +83,7 @@ include('inc/header.php'); ?>
                     <input type="password" name="password2" id="password2"><br>
                 </div>
 
-                <input type="submit" name="submitted" value="Inscrivez-Vous">
+                <input type="submit" name="submitted" value="Modifier mon profil">
             </form>
         </div>
     </div>

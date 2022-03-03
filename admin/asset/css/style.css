@@ -76,7 +76,6 @@ header nav ul li a:hover{
     display: flex;
     flex-flow: column;
     width: 30%;
-    margin: 0.5rem;
 }
 
 .bloc input{
@@ -223,5 +222,6 @@ header nav ul li a:hover{
     box-shadow: 15px 5px 5px lightgrey;
     border: #dfdfdf solid 2px;
     width: 45%;
+    margin-bottom: 1rem;
 }
 /* ///////////////////////////////////////////// */

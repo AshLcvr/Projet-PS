@@ -70,6 +70,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="details-articles.php">Voir tous</a>
                     <a class="collapse-item" href="details-newArticles.php">Nouveaux articles</a>
+                    <a class="collapse-item" href="add-article.php">Ajouter un article</a>
                     <div class="collapse-divider"></div>
 
                 </div>

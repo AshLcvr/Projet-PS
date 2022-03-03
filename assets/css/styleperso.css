@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.wrap{
+    width: 1080px;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    background-color: #4985A3;
+    padding: 3rem 0;
+}
+
+.center{
+    margin: 0 auto;
+}
+
+.flex{
+    display: flex;
+}
+
+header{
+    background-color: grey;
+    padding: 1rem 3rem;
+    width: 100%;
+    display: flex;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header nav ul{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    transition: all 0.4s;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    background-color: white;
+}
+
+header nav ul li a:hover{
+    background-color: black;
+}
+
+.header_container {
+    width: 100%;
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.separator{
+    padding: 2rem;
+  }
+
+.monForm{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+}
+
+.monForm input[type=submit]{
+    width: 30%;
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+    margin-top: 0.5rem;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+.monForm input[type=submit]:hover{
+    background-color: black;
+    color: white;
+}
+
+
+.bloc{
+    display: flex;
+    flex-flow: column;
+    width: 30%;
+    margin: 0.5rem;
+}
+
+.bloc input{
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+    margin-top: 0.5rem;
+}
+.bloc select{
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+    margin-top: 0.5rem;
+}
+
+.bloc2 .minibloc{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.bloc2 .minibloc input{
+    width: 20%;
+}
+
+.bloc2 .minibloc label{
+    width: 20%;
+}
+
+.bloc select{
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+}
+
+/* ///////////////////////////////////////////// */
+/* contenerArticles front */
+
+#contenerArticles{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+#contenerArticles .bloc{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+#contenerArticles .bloc .minibloc1{
+    width: 100%;
+    display: flex;
+    
+    align-items: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+}
+
+#contenerArticles .bloc .minibloc2{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#contenerArticles .bloc .minibloc2 ul{
+    list-style: none;
+    display: flex;
+}
+
+#contenerArticles .bloc img{
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 2rem;
+}
+
+#contenerArticles .bloc p{
+    margin-bottom: 1rem;
+}
+
+
+/* ///////////////////////////////////////////// */
+/* page detail article front */
+#contenerArticle{
+    display: flex;
+    justify-content: center;
+}
+
+#contenerArticle .blocArticle{
+    background-color: white;
+    width: 80%;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+#contenerArticle .blocArticle .separator{
+    margin-top: 1rem;
+}
+
+#contenerArticle .blocArticle .minibloc{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#contenerArticle .blocArticle .minibloc img{
+    width: 25%;
+    border-radius: 50%;
+}
+
+#contenerArticle .blocArticle .minibloc p{
+    width: 65%;
+}
+
+#contenerArticle .blocArticle form textarea{
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem 0 3rem 1rem;
+    resize: none;
+}
+
+#contenerArticle .blocArticle .minibloc2{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#contenerArticle .blocArticle .minibloc2 ul{
+    display: flex;
+    list-style: none;
+}
+

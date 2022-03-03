@@ -68,7 +68,11 @@ $count = $query->fetchColumn();
 
 
 require_once('inc/header.php'); ?>
-<form action="" method="post" class="tribox">
+
+
+<section id="homepage" class="wrap">
+    <h1>Bienvenue sur Blog2Ouf !</h1>
+    <form action="" method="post" class="tribox">
         <select class="tri" name="tri">
             <option value="6"> Nombre de rêves : </option>
             <option value="2" > 2 </option>
@@ -86,37 +90,39 @@ require_once('inc/header.php'); ?>
     </form>
     <?php pagination($page, $nbArticles, $count); ?>
 
-<div id="contenerArticles">
-    <?php foreach ($articles as $key => $article) { ?>
-        <?php if ($article['status'] === 'publish') { ?>
-            <div class="bloc bloc<?php echo $key; ?>">
-                <a class="minibloc1" href="detail-article.php?id=<?php echo $article['id']; ?>">
-                    <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
-                    <h2><?php echo $article['title']; ?></h2>
-                </a>
-                <h4>Cette article a été créé le <?php echo $article['created_at']; ?></h4>
-                <?php if (!$article['created_at'] === $article['modified_at']) { ?>
-                    <p><?php echo $article['modified']; ?></p>
-                <?php } ?>
-                <?php foreach ($comments as $key => $comment) { ?>
-                    <?php if ($article['id'] === $comment['id_article'] && $comment['status'] === 'publish') { ?>
-                        <div class="minibloc2">
-                            <ul>
-                                <?php foreach ($users as $key => $user) { ?>
-                                    <?php if ($comment['id_article'] === $user['id']) { ?>
-                                        <p><?php echo $user['pseudo']; ?>:&nbsp;</p>
-                                    <?php } ?>
-                                <?php } ?>
-                                <li><?php echo $comment['content']; ?></li>
-                            </ul>
-                        </div>
+    <div id="contenerArticles">
+        <?php foreach ($articles as $key => $article) { ?>
+            <?php if ($article['status'] === 'publish') { ?>
+                <div class="bloc bloc<?php echo $key; ?>">
+                    <a class="minibloc1" href="detail-article.php?id=<?php echo $article['id']; ?>">
+                        <img src="asset/img/<?php echo $article['image']; ?>" alt="<?php $article['title']; ?>">
+                        <h2><?php echo $article['title']; ?></h2>
+                    </a>
+                    <h4>Cette article a été créé le <?php echo $article['created_at']; ?></h4>
+                    <?php if (!$article['created_at'] === $article['modified_at']) { ?>
+                        <p><?php echo $article['modified']; ?></p>
                     <?php } ?>
-                <?php } ?>
-            </div>
+                    <?php foreach ($comments as $key => $comment) { ?>
+                        <?php if ($article['id'] === $comment['id_article'] && $comment['status'] === 'publish') { ?>
+                            <div class="minibloc2">
+                                <ul>
+                                    <?php foreach ($users as $key => $user) { ?>
+                                        <?php if ($comment['id_article'] === $user['id']) { ?>
+                                            <p><?php echo $user['pseudo']; ?>:&nbsp;</p>
+                                        <?php } ?>
+                                    <?php } ?>
+                                    <li><?php echo $comment['content']; ?></li>
+                                </ul>
+                            </div>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
+            <?php } ?>
         <?php } ?>
-    <?php } ?>
-</div>
-<?php pagination($page, $nbArticles, $count); ?>
+    </div>
+    <?php pagination($page, $nbArticles, $count); ?>
+</section>
+
 
 
 <?php require_once('inc/footer.php');
